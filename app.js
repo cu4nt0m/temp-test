@@ -1,9 +1,10 @@
-//npm init for package.json creation
-//npm init -y for package.json creation automatically
+const http = require("http");
 
-const _ = require('lodash');
+const server = http.createServer((req, res) => {
+  console.log("request event");
+  res.end("Hello world!");
+});
 
-const items = [1, [2, [3, [4]]]]
-
-const newItems = _.flattenDeep(items);
-console.log(newItems);
+server.listen(5000, () => {
+  console.log("Server listening on port: 5000");
+});
